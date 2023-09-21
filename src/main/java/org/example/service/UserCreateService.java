@@ -5,6 +5,7 @@ import org.example.exaptions.CreateException;
 import org.example.repository.UserCreateRepository;
 import org.example.utils.Constants;
 import org.example.utils.EmailValidator;
+import org.example.utils.NameValidator;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -30,12 +31,13 @@ public class UserCreateService {
     }
     private  Map<String,String> validateData(String[] data){
         Map<String,String> errors = new HashMap<>();
-        if(data[0].isEmpty())
-            errors.put("user name", Constants.INPUT_REQ_MSG);
-        if(data[1].isEmpty())
-            errors.put("first name", Constants.INPUT_REQ_MSG);
-        if(data[2].isEmpty())
-            errors.put("last name", Constants.INPUT_REQ_MSG);
+        if(NameValidator.isLastNameValidator(data[0]))
+            errors.put("user name", Constants.WRONG_NAME);
+        if(NameValidator.isLastNameValidator(data[1]))
+            errors.put("first name", Constants.WRONG_NAME);
+
+        if(NameValidator.isLastNameValidator(data[2]))
+            errors.put("last name", Constants.WRONG_NAME);
         if(EmailValidator.isEmailValidator(data[3]))
             errors.put("email", Constants.WRONG_EMAIL_MSG);
         return errors;
