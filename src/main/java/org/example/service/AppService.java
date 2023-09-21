@@ -80,6 +80,17 @@ public class AppService {
             }
         }
     }
+    public void getNoSuchOptionUp(int choice) {
+        int[] menuChoices = {0, 1, 2};
+        if (!contains(menuChoices, choice)) {
+            try {
+                throw new OptionException(Constants.INCORRECT_VALUE_MSG);
+            } catch (OptionException e) {
+                System.out.println(e.getMessage());
+                AppStarter.startApp();
+            }
+        }
+    }
 
     // Проверка наличия ввода в массиве выбора
     public static boolean contains(final int[] options, final int value) {

@@ -22,14 +22,14 @@ public class AppViewUpdate {
         return option;
     }
     public  void showMenuUp(){
-        System.out.println("""
+        System.out.print("""
                 ______Update Menu______
                 1 - Rename Last name.
-                2 - Restore Email.
+                2 - Rename Email.
                 0 - Close the App.
              """);
     }
-    public void getOutput2(int choice, String output) {
+    public void getOutPut(int choice, String output) {
         if (choice == 0) System.out.println(output);
         scanner.close();
         System.exit(0);

@@ -21,8 +21,8 @@ public class AppControllerUpdate {
         switch (choice) {
             case 1 -> service.updateLastName();
             case 2 -> service.updateEmail();
-            case 0 -> view.getOutput2(choice, Constants.APP_CLOSE_MSG);
-            default -> service.getNoSuchOption(choice);
+            case 0 -> view.getOutPut(choice, Constants.APP_CLOSE_MSG);
+            default -> service.getNoSuchOptionUp(choice);
         }
 
     }

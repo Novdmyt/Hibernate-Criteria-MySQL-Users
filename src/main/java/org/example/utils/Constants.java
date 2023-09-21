@@ -8,7 +8,7 @@ public class Constants {
     public final static String EMAIL_RGX = "^[a-zA-Z0-9_!#$%&’*+/=?`{|}~^.-]+@[a-zA-Z0-9.-]+$";
     public final static String WRONG_EMAIL_MSG = "Wrong email input.";
     public final static String WRONG_NAME = "Wrong input.";
-    public final static String ID_RGX = "^[1-9]$";
+    public final static String ID_RGX = "^(?:[1-9]|[1-9][0-9]|100)$";
     public final static String LAST_NAME = "^[a-zA-Z0-9_ -]+$";
     public final static String WRONG_ID_MSG = "Wrong id input.";
     public final static String DATA_ABSENT_MSG = "\n>> No data!";
