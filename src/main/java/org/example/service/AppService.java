@@ -81,7 +81,7 @@ public class AppService {
         }
     }
     public void getNoSuchOptionUp(int choice) {
-        int[] menuChoices = {0, 1, 2};
+        int[] menuChoices = {0, 1, 2, 3};
         if (!contains(menuChoices, choice)) {
             try {
                 throw new OptionException(Constants.INCORRECT_VALUE_MSG);
