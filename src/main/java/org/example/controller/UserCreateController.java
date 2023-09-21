@@ -1,6 +1,7 @@
 package org.example.controller;
 
 import org.example.service.UserCreateService;
+import org.example.utils.AppStarter;
 import org.example.view.UserCreateView;
 
 public class UserCreateController {
