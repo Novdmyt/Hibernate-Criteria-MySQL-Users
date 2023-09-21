@@ -17,7 +17,7 @@ public class UserCreateRepository {
 
             session.persist(user);
 
-          
+
             transaction.commit();
             return Constants.DATA_INSERT_MSG;
         } catch (Exception e) {
