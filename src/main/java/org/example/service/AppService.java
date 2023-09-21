@@ -3,15 +3,25 @@ package org.example.service;
 import org.example.controller.UserCreateController;
 import org.example.controller.UserDeleteController;
 import org.example.controller.UserReadController;
+import org.example.controller.UserUpdateController;
+import org.example.controller.userupdate.UserEmailUpdateController;
+import org.example.controller.userupdate.UserLastNameController;
 import org.example.exaptions.OptionException;
 import org.example.repository.UserCreateRepository;
 import org.example.repository.UserDeleteRepository;
 import org.example.repository.UserReadRepository;
+import org.example.repository.userupdate.UserEmailUpdateRepository;
+import org.example.repository.userupdate.UserLastNameUpdateRepository;
+import org.example.service.userupdate.UserEmailUpdateService;
+import org.example.service.userupdate.UserLastNameUpdateService;
 import org.example.utils.AppStarter;
 import org.example.utils.Constants;
+import org.example.view.AppViewUpdate;
 import org.example.view.UserCreateView;
 import org.example.view.UserDeleteView;
 import org.example.view.UserReadView;
+import org.example.view.userupdate.UserUpdateEmailView;
+import org.example.view.userupdate.UserUpdateLastNameView;
 
 public class AppService {
     public void createUser() {
@@ -30,7 +40,26 @@ public class AppService {
         controller.readUser();
     }
 
-//
+    public void updateEmail() {
+        UserEmailUpdateRepository repository = new UserEmailUpdateRepository();
+        UserEmailUpdateService service = new UserEmailUpdateService(repository);
+        UserUpdateEmailView view = new UserUpdateEmailView();
+        UserEmailUpdateController controller = new UserEmailUpdateController( view,service);
+        controller.updateContact();
+    }
+
+    public void updateLastName(){
+        UserLastNameUpdateRepository repository = new UserLastNameUpdateRepository();
+        UserLastNameUpdateService service = new UserLastNameUpdateService(repository);
+        UserUpdateLastNameView view = new UserUpdateLastNameView();
+        UserLastNameController controller2 = new UserLastNameController( service,view);
+        controller2.updateContact();
+    }
+    public void updateMenu(){
+        AppViewUpdate viewUpd = new AppViewUpdate();
+        UserUpdateController controller = new UserUpdateController( viewUpd);
+        controller.updateMenu();
+    }
 
     public void deleteUser() {
         UserDeleteRepository repository = new UserDeleteRepository();
@@ -64,4 +93,3 @@ public class AppService {
         return result;
     }
 }
-
