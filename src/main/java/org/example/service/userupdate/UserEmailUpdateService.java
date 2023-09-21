@@ -4,6 +4,7 @@ import org.example.entities.User;
 import org.example.exaptions.UpdateException;
 import org.example.repository.userupdate.UserEmailUpdateRepository;
 import org.example.utils.Constants;
+import org.example.utils.EmailValidator;
 import org.example.utils.IdValidator;
 
 
@@ -38,6 +39,8 @@ public class UserEmailUpdateService {
 
         if (IdValidator.isIdValid(data[0]))
             errors.put("id", Constants.WRONG_ID_MSG);
+        if (EmailValidator.isEmailValidator(data[1]))
+            errors.put("email", Constants.WRONG_EMAIL_MSG);
 
         return errors;
     }

@@ -5,6 +5,7 @@ import org.example.exaptions.UpdateException;
 import org.example.repository.userupdate.UserLastNameUpdateRepository;
 import org.example.utils.Constants;
 import org.example.utils.IdValidator;
+import org.example.utils.LastNameValidator;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -37,6 +38,8 @@ public class UserLastNameUpdateService {
 
         if (IdValidator.isIdValid(data[0]))
             errors.put("id", Constants.WRONG_ID_MSG);
+        if (LastNameValidator.isLastNameValidator(data[1]))
+            errors.put("last name", Constants.WRONG_LAST_NAME);
         return errors;
     }
 
