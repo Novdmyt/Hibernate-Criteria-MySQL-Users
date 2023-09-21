@@ -8,24 +8,25 @@ import java.util.Scanner;
 
 public class AppViewUpdate {
     Scanner scanner;
-    int option;
+    int optionUp;
 
     public int chooseOptionUp() {
         scanner = new Scanner(System.in);
         showMenuUp();
         try {
-            option = scanner.nextInt();
+            optionUp = scanner.nextInt();
         } catch (InputMismatchException ime) {
             System.out.println(Constants.INCORRECT_VALUE_MSG);
             AppStarter.startApp();
         }
-        return option;
+        return optionUp;
     }
     public  void showMenuUp(){
         System.out.print("""
                 ______Update Menu______
                 1 - Rename Last name.
                 2 - Rename Email.
+                3 - Return  in main Menu
                 0 - Close the App.
              """);
     }
